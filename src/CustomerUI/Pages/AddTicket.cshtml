@@ -12,6 +12,30 @@
         <label asp-for="Ticket.Description" class="form-label"></label>
         <textarea class="form-control" asp-for="Ticket.Description" rows="3"></textarea>
     </div>
+
+    <div class="form-group">
+        <label asp-for="Ticket.Priority"></label>
+        <select asp-for="Ticket.Priority" class="form-control" id="exampleFormControlSelect1">
+            <option selected> انتخاب کنید</option>
+
+            <option value="@Entities.PriorityEnum.High">فوری</option>
+            <option value="@Entities.PriorityEnum.Normal">معمولی</option>
+            <option value="@Entities.PriorityEnum.Low">کم اهمیت</option>
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Ticket.DepartmentName" class="form-label"></label>
+        <input class="form-control" asp-for="Ticket.DepartmentName" ></input>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Ticket.SubmittedBy" class="form-label"></label>
+        <input class="form-control" asp-for="Ticket.SubmittedBy" ></input>
+    </div>
+
+
     <div class="col-12">
         <button type="submit" class="btn btn-primary">ارسال درخواست</button>
     </div>

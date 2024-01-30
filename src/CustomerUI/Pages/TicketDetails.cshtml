@@ -2,3 +2,31 @@
 @model CustomerUI.Pages.TicketDetailsModel
 @{
 }
+
+<div class="my-5  container">
+    <h2>@Model.CurrentTicket.Title جزئیات برای</h2>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">نام</th>
+                <th scope="col">نام شعبه</th>
+                <th scope="col">توضیحات</th>
+                <th scope="col">تاریخ ثبت</th>
+                <th scope="col">دیده شده توسط:</th>
+                <th scope="col">اولیوت</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row">@Model.CurrentTicket.Id</th>
+                <td>@Model.CurrentTicket.Title</td>
+                <td>@Model.CurrentTicket.DepartmentName</td>
+                <td>@Model.CurrentTicket.Description</td>
+                <td>@Model.CurrentTicket.SubmittedAt</td>
+                <td>@Model.CurrentTicket.SubmittedBy</td>
+                <td>@Model.CurrentTicket.Priority</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

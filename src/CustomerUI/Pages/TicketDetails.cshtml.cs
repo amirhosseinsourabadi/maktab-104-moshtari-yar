@@ -1,3 +1,5 @@
+using Data;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -5,19 +7,24 @@ namespace CustomerUI.Pages
 {
     public class TicketDetailsModel : PageModel
     {
-
+        InMemoryDatabase dataBase = new InMemoryDatabase();
 
         #region Model
         [BindProperty]
-        public int Id { get; set; }
+        public Ticket CurrentTicket { get; set; }
         #endregion
 
 
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
-            this.Id=id;
+            var tickets = dataBase.GetTickets();
+            var targetTicket = tickets.FirstOrDefault(t => t.Id == id);
+            CurrentTicket = targetTicket;
 
-            // get ticket from database
+            if (CurrentTicket == null)
+                return NotFound();
+
+            return Page();
         }
     }
 }

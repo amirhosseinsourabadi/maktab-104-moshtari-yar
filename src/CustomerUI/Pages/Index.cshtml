@@ -10,7 +10,11 @@
         <td>شناسه درخواست</td>
         <td>عنوان</td>
         <td>توضیحات</td>
-        <td>عملیات</td>
+        <td>اولویت</td>
+        <td>نام سازمان</td>
+        <td>کد شخص ارسال کننده</td>
+        <td>زمان ارسال</td>
+
     </tr>
     @foreach (var ticket in Model.Tickets)
     {
@@ -18,6 +22,10 @@
             <td>@ticket.Id</td>
             <td>@ticket.Title</td>
             <td>@ticket.Description</td>
+            <td>@ticket.Priority</td>
+            <td>@ticket.DepartmentName</td>
+            <td>@ticket.SubmittedBy</td>
+            <td>@ticket.SubmittedAt</td>
             <td>
                 <a class="btn btn-sm btn-info" asp-page="/TicketDetails" asp-route-Id="@ticket.Id">مشاهده</a>
             </td>
